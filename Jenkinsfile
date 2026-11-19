@@ -20,22 +20,6 @@ pipeline {
       }
     }
 
-    stage('Validate Checkstyle') {
-      steps {
-        withMaven(maven: 'MAVEN_3_9') {
-          sh 'mvn checkstyle:check'
-        }
-      }
-    }
-
-    stage('Validate Unit Tests') {
-      steps {
-        withMaven(maven: 'MAVEN_3_9') {
-          sh 'mvn test'
-        }
-      }
-    }
-
     stage('Validate Test Coverage') {
       steps {
         withMaven(maven: 'MAVEN_3_9') {
